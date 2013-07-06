@@ -264,5 +264,6 @@
 (setq fortran-mode-hook
 '(lambda ()
 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
+(define-key fortran-mode-map "\C-cc" 'compile)
 ))
 

@@ -227,6 +227,8 @@
 ;;;
 ;;; org-mode
 ;;;
+(require 'remember)
+(require 'org-remember)
 ;; org-modeの初期化
 (require 'org-install)
 ;; キーバインドの設定
@@ -266,4 +268,7 @@
 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
 (define-key fortran-mode-map "\C-cc" 'compile)
 ))
+
+;; magit
+(global-set-key "\C-cm" 'magit-status)
 

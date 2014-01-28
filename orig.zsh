@@ -230,7 +230,7 @@ cd ..
 zle reset-prompt
 }
 zle -N cdup
-bindkey '\^' cdup
+#bindkey '\^' cdup
 
 function chpwd() { ls -v -F --color=auto }
 
@@ -276,3 +276,6 @@ function do_enter() {
 }
 zle -N do_enter
 bindkey '^m' do_enter
+
+#emacs freeze bug?
+stty -ixon

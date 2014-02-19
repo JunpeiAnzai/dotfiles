@@ -280,3 +280,6 @@
 
 ;; GC
 (setq gc-cons-threshold (* 10 gc-cons-threshold))
+
+;; yes/no -> y/n
+(defalias 'yes-or-no-p 'y-or-n-p)

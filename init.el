@@ -57,14 +57,18 @@
 (require 'mozc)
 (setq default-input-method "japanese-mozc")
 (define-key global-map [zenkaku-hankaku] 'toggle-input-method)
+(add-hook 'input-method-activate-hook
+	  (lambda()(set-cursor-color"blue")))
+(add-hook 'input-method-inactivate-hook
+	  (lambda()(set-cursor-color"white")))
 
 ;; ibus-mode
-(require 'ibus)
+;(require 'ibus)
 ;; Turn on ibus-mode automatically after loading .emacs
-(add-hook 'after-init-hook 'ibus-mode-on)
+;(add-hook 'after-init-hook 'ibus-mode-on)
 
 ;; Change cursor color depending on IBus status
-(setq ibus-cursor-color "red")
+;(setq ibus-cursor-color "red")
 
 (let ((default-directory  "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -163,6 +167,8 @@
 ; Tex template
 (setq YaTeX-template-file "~/.emacs.d/lisp/yatex/template.tex")
 
+; YaTex + RefTeX
+(add-hook 'yatex-mode-hook 'turn-on-reftex)
 
 ; server start for emacs-client
 (require 'server)
@@ -272,3 +278,5 @@
 ;; magit
 (global-set-key "\C-cm" 'magit-status)
 
+;; GC
+(setq gc-cons-threshold (* 10 gc-cons-threshold))

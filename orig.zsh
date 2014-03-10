@@ -247,14 +247,20 @@ function google() {
   w3m http://www.google.co.jp/$opt
 }
 
+# Intel compiler
 source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
 
+# Open MPI
 MPIROOT=/usr/local/openmpi
 PATH=$MPIROOT/bin:$PATH
 LD_LIBRARY_PATH=$MPIROOT/lib:$LD_LIBRARY_PATH
 MANPATH=$MPIROOT/share/man:$MANPATH
 export MPIROOT PATH LD_LIBRARY_PATH MANPATH
 
+# PetSc
+PETSC_DIR=/opt/petsc/petsc-3.4.3
+
+# emacs cliant
 export EDITOR=emacsclient
 
 function do_enter() {

@@ -28,4 +28,13 @@ stab
 # oh-my-zsh
     yaourt -S wget
     wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+stab  
+
+# solarlized
+## terminal(xterm)
+    wget https://raw.githubusercontent.com/altercation/solarized/master/xresources/solarized
+    mv solarized ~/dotfiles/.Xresources
+    ln -s ~/dotdiles/.Xresources ~/.Xresources
+    xrdb ~/.Xresources
+check xterm.  
 

@@ -19,3 +19,13 @@ in `~/dotfiles/.xprofile`
     yaourt -S ttf-migmix
 create/edit `~/dotfiles/.fonts.conf`  
 ln -s ~/dotfiles/.fonts.conf ~/.fonts.conf  
+
+# latex environment
+    yaourt -S texlive-most
+    yaourt -S texlive-langcjk
+stab  
+
+# oh-my-zsh
+    yaourt -S wget
+    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+

@@ -15,3 +15,7 @@ in `~/dotfiles/.xprofile`
     export QT_IM_MODULE=fcitx
     export XMODIFIERS="@im=fcitx"  
   
+# system font
+    yaourt -S ttf-migmix
+create/edit `~/dotfiles/.fonts.conf`  
+ln -s ~/dotfiles/.fonts.conf ~/.fonts.conf  

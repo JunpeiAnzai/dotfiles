@@ -69,3 +69,5 @@
 *color14:                 S_base1
 *color15:                 S_base3
 
+XTerm*faceName : MigMix 1M:style=Regular
+XTerm*faceSize : 14

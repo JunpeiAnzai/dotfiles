@@ -53,4 +53,6 @@ stab
 download Inconsolata and Migu1M.  
     git clone https://github.com/yascentur/Ricty.git
     ./ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf
-
+    mkdir ~/.fonts
+    cp -f Ricty*.ttf ~/.fonts/
+    fc-cache -vf

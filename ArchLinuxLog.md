@@ -113,6 +113,8 @@ edit `makefile` line 6
 ### flymake for fortran
 stab
 
+## magit
+`package-install` and choose `magit`
 
 # aspell
 create `.aspell.conf` and edit

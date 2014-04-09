@@ -101,4 +101,8 @@ add marmarade package repository and `package-refresh-contents`.
 `package-install` and choose `markdown-mode`  
 
 ## yatex
-
+    hg clone http://www.yatex.org/hgrepos/yatex yatex
+edit `makefile` line 6
+    -- PREFIX = /usr/local
+	++ PREFIX = /usr
+	sudo make install

@@ -69,7 +69,8 @@ stab
 # ricty
     yaourt -S fontforge
 download Inconsolata and Migu1M.  
-    git clone https://github.com/yascentur/Ricty.git
+    gi
+	t clone https://github.com/yascentur/Ricty.git
     ./ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf
     mkdir ~/.fonts
     cp -f Ricty*.ttf ~/.fonts/
@@ -135,3 +136,13 @@ edit ~/.ssh/config
 and test connection,
     ssh-add ~/.ssh/github/id_rsa.github.com
     ssh -T git@github.com
+
+# chromium
+## font rendoring
+create & edit `~/,config/fontconfig/fonts.conf`  
+    <match target="font">
+      <edit mode="assign" name="autohint"><bool>true</bool></edit>
+      <edit mode="assign" name="hinting"><bool>true</bool></edit>
+      <edit mode="assign" name="hintstyle"><const>hintslight</const></edit>
+    </match>
+

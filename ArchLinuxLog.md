@@ -122,3 +122,9 @@ create `.aspell.conf` and edit
 and,
     ln -s ~/dotfiles/.aspell.conf ~/.aspell.conf
 
+
+# make github key
+    mkdir ~/.ssh/github
+	ssh-keygen
+	mv id_rsa.github.com* ~/.ssh/github/
+	chmod 600 id_rsa.github.com.pub

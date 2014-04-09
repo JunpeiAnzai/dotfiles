@@ -1,0 +1,7 @@
+!! for apple wireless keyboard
+!!remove mod5 = ISO_Level3_Shift
+keycode  66 = Control_L NoSymbol Control_L
+keycode 108 = Alt_L Meta_L Alt_L Meta_L
+!!add mod1 = ISO_Level3_Shift
+remove lock = Control_L 
+add Control = Control_L

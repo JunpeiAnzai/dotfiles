@@ -146,3 +146,7 @@ create & edit `~/,config/fontconfig/fonts.conf`
       <edit mode="assign" name="hintstyle"><const>hintslight</const></edit>
     </match>
 
+## flash plugin
+    yaourt -S chromium-pepper-flash
+
+## 

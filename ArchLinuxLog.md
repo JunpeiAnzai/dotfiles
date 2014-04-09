@@ -149,4 +149,5 @@ create & edit `~/,config/fontconfig/fonts.conf`
 ## flash plugin
     yaourt -S chromium-pepper-flash
 
-## 
+## pdf plugin
+    yaourt -S chromium-libpdf

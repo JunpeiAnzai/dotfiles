@@ -67,5 +67,8 @@ download Inconsolata and Migu1M.
     cp -f Ricty*.ttf ~/.fonts/
     fc-cache -vf
 
+# disable cursor blink
+    gsettings set org.gnome.desktop.interface cursor-blink false
+
 
 # emacs

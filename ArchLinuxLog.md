@@ -127,4 +127,11 @@ and,
     mkdir ~/.ssh/github
 	ssh-keygen
 	mv id_rsa.github.com* ~/.ssh/github/
-	chmod 600 id_rsa.github.com.pub
+edit ~/.ssh/config
+    Host github.com
+      Compression yes
+      IdentityFile ~/.ssh/github/id_rsa.github.com
+	  User git
+and test connection,
+    ssh-add ~/.ssh/github/id_rsa.github.com
+    ssh -T git@github.com

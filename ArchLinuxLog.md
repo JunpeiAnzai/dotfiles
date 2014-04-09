@@ -1,4 +1,4 @@
-# ctrl-caps swaping  
+# ctrl-caps swapping  
 edit `/etc/X11/xorg.conf.d/00-keyboard.conf`
     Option "XkbOptions" "ctrl:swapcaps"  
 restart.
@@ -106,3 +106,11 @@ edit `makefile` line 6
     -- PREFIX = /usr/local
 	++ PREFIX = /usr
 	sudo make install
+
+
+# aspell
+create `.aspell.conf` and edit
+    lang en US
+and,
+    ln -s ~/dotfiles/.aspell.conf ~/.aspell.conf
+

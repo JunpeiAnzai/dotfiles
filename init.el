@@ -53,22 +53,6 @@
           (lambda()
             (eshell)
             (switch-to-buffer "*scratch*")))
-;Mozc
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
-(define-key global-map [zenkaku-hankaku] 'toggle-input-method)
-(add-hook 'input-method-activate-hook
-	  (lambda()(set-cursor-color"blue")))
-(add-hook 'input-method-inactivate-hook
-	  (lambda()(set-cursor-color"white")))
-
-;; ibus-mode
-;(require 'ibus)
-;; Turn on ibus-mode automatically after loading .emacs
-;(add-hook 'after-init-hook 'ibus-mode-on)
-
-;; Change cursor color depending on IBus status
-;(setq ibus-cursor-color "red")
 
 (let ((default-directory  "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -78,10 +62,31 @@
 (global-set-key "\M-n" 'linum-mode)
 (global-linum-mode t)     
 
+
+; auto-install
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/lisp/auto-install/")
 (auto-install-update-emacswiki-package-name t)
 (auto-install-compatibility-setup)             ; compatibility
+
+
+;Mozc
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
+(define-key global-map [zenkaku-hankaku] 'toggle-input-method)
+(add-hook 'input-method-activate-hook
+	  (lambda()(set-cursor-color"blue")))
+(add-hook 'input-method-inactivate-hook
+	  (lambda()(set-cursor-color"white")))
+(setq mozc-candidate-style 'overlay)
+
+;; ibus-mode
+;(require 'ibus)
+;; Turn on ibus-mode automatically after loading .emacs
+;(add-hook 'after-init-hook 'ibus-mode-on)
+
+;; Change cursor color depending on IBus status
+;(setq ibus-cursor-color "red")
 
 ;(require 'anything-startup)
 (setq fci-rule-color "#eee8d5")
@@ -175,42 +180,15 @@
 (unless (server-running-p)
   (server-start))
 
-;(require 'color-theme)
-;(require 'molokai)
-;(load "~/.emacs.d/lisp/color-theme-molokai/color-theme-molokai.el")
-;(color-theme-molokai)
-;(eval-after-load "color-theme"
-;  '(progn
-;     (color-theme-initialize)
-;     (color-theme-zenburn)))
-;(setq custom-theme-directory "~/.emacs.d/themes")
-
-
-;(load-theme 'monokai t)
-;(enable-theme 'monokai)
-
 (require 'package)
 (add-to-list 'package-archives 
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
-(load-theme 'solarized-light t t) 
-(load-theme 'solarized-dark t t) 
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
+;(load-theme 'solarized-light t t) 
+;(load-theme 'solarized-dark t t)
 
 (require 'auto-complete-config)
 (ac-config-default)
@@ -269,12 +247,6 @@
 ; return で 改行 + auto indent
 (global-set-key "\C-m" 'newline-and-indent)
 
-(setq fortran-mode-hook
-'(lambda ()
-(define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
-(define-key fortran-mode-map "\C-cc" 'compile)
-))
-
 ;; magit
 (global-set-key "\C-cm" 'magit-status)
 
@@ -283,3 +255,60 @@
 
 ;; yes/no -> y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; flymake
+(require 'flymake)
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+;;; Makefile doesn't exist
+(defun my:flymake-simple-generic-init (cmd &optional opts)
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		     'flymake-create-temp-inplace))
+	 (local-file (file-relative-name
+		      temp-file
+		      (file-name-directory buffer-file-name))))
+    (list cmd (append opts (list local-file)))))
+;;; Makefile exist
+(defun my:flymake-simple-make-or-generic-init (cmd &optional opts)
+  (if (file-exists-p "Makefile")
+      (flymake-simple-make-init)
+    (my:flymake-simple-generic-init cmd opts)))
+;;; fortran90 or 95
+;(defun my:flymake-gfortran-init ()
+;    (my:flymake-simple-make-or-generic-init
+;        "gfortran" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
+;(defun my:flymake-g95-init ()
+;    (my:flymake-simple-make-or-generic-init
+;        "g95" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
+
+; fortran
+(setq fortran-mode-hook
+      '(lambda ()
+	 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
+	 (define-key fortran-mode-map "\C-cc" 'compile)
+))
+; f90
+(setq f90-mode-hook
+      '(lambda ()
+	 (define-key f90-mode-map "\C-j" 'f90-indent-new-line)
+	 (define-key f90-mode-map "\C-cc" 'compile)))
+(add-hook 'f90-mode-hook
+	  '(lambda ()
+	     (flymake-mode t)))
+
+;; minimal, non-make g95 setup
+(defun flymake-g95-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		            'flymake-create-temp-inplace))
+	    (local-file (file-relative-name
+			       temp-file
+			             (file-name-directory buffer-file-name))))
+          (list "/usr/bin/gfortran" (list "-c" local-file))))
+
+(setq flymake-allowed-file-name-masks
+            (cons '(".+\\.[fF]90$"
+		          flymake-g95-init
+			        flymake-simple-cleanup
+				      flymake-get-real-file-name)
+		      flymake-allowed-file-name-masks))
+
+(push '("^In file \\(.+\\):\\([0-9]+\\)" 1 2) flymake-err-line-patterns)

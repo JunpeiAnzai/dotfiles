@@ -37,4 +37,20 @@ stab
     ln -s ~/dotdiles/.Xresources ~/.Xresources
     xrdb ~/.Xresources
 check xterm.  
+## terminal(gnome-terminal)
+   git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+
+stab
+
+## tmux  
+    pacman -S tmux  
+
+## source-highlight  
+    yaourt -S source-highlight  
+
+## ricty
+    yaourt -S fontforge
+download Inconsolata and Migu1M.  
+    git clone https://github.com/yascentur/Ricty.git
+    ./ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf
 

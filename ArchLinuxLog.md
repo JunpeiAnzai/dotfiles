@@ -3,7 +3,8 @@ edit `/etc/X11/xorg.conf.d/00-keyboard.conf`
     Option "XkbOptions" "ctrl:swapcaps"  
 restart.
 
-# fcitx  
+# fcitx
+due to confliction to mozc-emacs, deleted.
 edit `/etc/locale.gen` coment-off  
     ja_JP.UTF-8  
 and

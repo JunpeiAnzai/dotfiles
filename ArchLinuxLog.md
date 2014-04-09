@@ -107,6 +107,12 @@ edit `makefile` line 6
 	++ PREFIX = /usr
 	sudo make install
 
+## flymake
+`package-install` and choose `flymake`
+
+### flymake for fortran
+stab
+
 
 # aspell
 create `.aspell.conf` and edit

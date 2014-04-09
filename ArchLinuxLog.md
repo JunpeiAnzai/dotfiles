@@ -51,6 +51,13 @@ create & edit `.tmux.conf`
 and at terminal,
     tmux source-file ~/.tmux.conf
       
+## emacs
+    git clone https://github.com/sellout/emacs-color-theme-solarized.git
+    cp -r emacs-color-theme-solarized ~/.emacs.d/theme/
+edit ~/.emacs.d/init.el
+    (add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
+    (load-theme 'solarized-dark t t) 
+    
 # tmux-powerline
     git clone https://github.com/erikw/tmux-powerline.git
 stab
@@ -70,5 +77,27 @@ download Inconsolata and Migu1M.
 # disable cursor blink
     gsettings set org.gnome.desktop.interface cursor-blink false
 
-
+# mercurial
+    
 # emacs
+## mozc.el
+    yaourt -Ss mozc
+conflict to mozc-fcitx. remove mozc-fcitx.
+## twittering-mode
+    git clone git://github.com/hayamiz/twittering-mode.git
+    cp twittering-mode.el ~/.emacs.d/lisp/
+## solarized  
+goto solarized section.
+stab  
+
+## auto-complete.el
+add marmarade package repository and `package-refresh-contents`. 
+`install-package` and choose `auto-complete`.  
+    hg clone https://bitbucket.org/tequilasunset/auto-complete-latex
+    cp -r auto-complete-latex ~/.emacs.d/lisp/
+
+## markdown-mode.el
+`package-install` and choose `markdown-mode`  
+
+## yatex
+

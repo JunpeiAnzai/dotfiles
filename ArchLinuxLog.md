@@ -30,6 +30,9 @@ stab
     wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 stab  
 
+# tmux  
+    pacman -S tmux  
+
 # solarlized
 ## terminal(xterm)
     wget https://raw.githubusercontent.com/altercation/solarized/master/xresources/solarized
@@ -37,18 +40,25 @@ stab
     ln -s ~/dotdiles/.Xresources ~/.Xresources
     xrdb ~/.Xresources
 check xterm.  
-## terminal(gnome-terminal)
-   git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 
+## terminal(gnome-terminal)
+    git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+
+## tmux
+    git clone https://github.com/seebi/tmux-colors-solarized.git
+create & edit `.tmux.conf`
+    set-option -g prefix C-t
+and at terminal,
+    tmux source-file ~/.tmux.conf
+      
+# tmux-powerline
+    git clone https://github.com/erikw/tmux-powerline.git
 stab
 
-## tmux  
-    pacman -S tmux  
-
-## source-highlight  
+# source-highlight  
     yaourt -S source-highlight  
 
-## ricty
+# ricty
     yaourt -S fontforge
 download Inconsolata and Migu1M.  
     git clone https://github.com/yascentur/Ricty.git
@@ -56,3 +66,6 @@ download Inconsolata and Migu1M.
     mkdir ~/.fonts
     cp -f Ricty*.ttf ~/.fonts/
     fc-cache -vf
+
+
+# emacs

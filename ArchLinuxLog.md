@@ -1,8 +1,8 @@
 # ctrl-caps swapping  
-edit `/etc/X11/xorg.conf.d/00-keyboard.conf`
-    Option "XkbOptions" "ctrl:swapcaps"  
-restart.
-
+edit `.profile`  
+    setxkbmap -option ctrl:swapcaps
+    ln -s ~/dotfiles/.profile ~/.profile
+	
 # fcitx
 due to confliction to mozc-emacs, deleted.
 edit `/etc/locale.gen` coment-off  
@@ -15,7 +15,12 @@ in `~/dotfiles/.xprofile`
     export GTK_IM_MODULE=ibus
     export QT_IM_MODULE=ibus
     export XMODIFIERS="@im=ibus"  
-  
+
+deleted.
+# ibus-mozc
+    gsettings set org.gnome.settings-daemon.plugins.keyboard active true
+	yaourt -S mozc
+
 # system font
     yaourt -S ttf-migmix
 create/edit `~/dotfiles/.fonts.conf`  
@@ -151,11 +156,3 @@ create & edit `~/,config/fontconfig/fonts.conf`
 
 ## pdf plugin
     yaourt -S chromium-libpdf
-
-# uim-mozc
-    yaourt -S mozc-ut
-disable `ibus-mozc`, enable `uim-mozc` and `mozc.el`
-create `uim-env.service`, `uim.service`, `uim-toolbar.service`.
-    ln -s ~/dotfiles/.config/systemd/user/uim-env.service ~/.config/systemd/user/uim-env.service
-    ln -s ~/dotfiles/.config/systemd/user/uim.service ~/.config/systemd/user/uim.service
-    ln -s ~/dotfiles/.config/systemd/user/uim-toolbar.service ~/.config/systemd/user/uim-toolbar.service

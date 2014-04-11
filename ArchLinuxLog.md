@@ -1,5 +1,5 @@
 # ctrl-caps swapping  
-edit `.profile`
+edit `.profile`  
     setxkbmap -option ctrl:swapcaps
     ln -s ~/dotfiles/.profile ~/.profile
 	

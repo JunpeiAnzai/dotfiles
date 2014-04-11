@@ -253,6 +253,7 @@ function google() {
 
 # Intel compiler
 #source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
+source /opt/intel/pkg_bin/compilervars.sh intel64
 
 ## Open MPI
 #MPIROOT=/usr/local/openmpi

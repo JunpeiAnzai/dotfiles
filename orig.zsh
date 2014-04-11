@@ -1,9 +1,9 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-bindkey -e
-# End of lines configured by zsh-newuser-install
+## Lines configured by zsh-newuser-install
+#HISTFILE=~/.histfile
+#HISTSIZE=1000
+#SAVEHIST=1000
+#bindkey -e
+## End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/anzai/.zshrc'
 
@@ -17,14 +17,14 @@ compinit
 #
 # LANG
 #
-export LANG=ja_JP.UTF-8
+#export LANG=ja_JP.UTF-8
 
-export LESS='-R'
+#export LESS='-R'
 export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
-export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
+#export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
 
 ## Default shell configuration
 #
@@ -146,7 +146,7 @@ alias df="df -h"
 
 alias su="su -l"
 
-alias yitp="ssh mercury.yukawa.kyoto-u.ac.jp"
+#alias yitp="ssh mercury.yukawa.kyoto-u.ac.jp"
 
 #alias emacs="env TERM=xterm XMODIFIERS=@im=none emacs"
 
@@ -194,7 +194,8 @@ kterm)
 cons25)
     unset LANG
     export LSCOLORS=ExFxCxdxBxegedabagacad
-    export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+    export LS_COLORS='di=01;34:ln=01;35:so=01;\
+    32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
     zstyle ':completion:*' list-colors \
         'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
     ;;
@@ -219,10 +220,13 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
+# auto start terminal multiplexer
+#if [ $SHLVL = 1 ];then
+#  byobu
+#fi
 if [ $SHLVL = 1 ];then
-  byobu
+  tmux -2
 fi
-
 
 function cdup() {
 echo
@@ -248,20 +252,19 @@ function google() {
 }
 
 # Intel compiler
-source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
+#source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
 
-# Open MPI
-MPIROOT=/usr/local/openmpi
-PATH=$MPIROOT/bin:$PATH
-LD_LIBRARY_PATH=$MPIROOT/lib:$LD_LIBRARY_PATH
-MANPATH=$MPIROOT/share/man:$MANPATH
-export MPIROOT PATH LD_LIBRARY_PATH MANPATH
+## Open MPI
+#MPIROOT=/usr/local/openmpi
+#PATH=$MPIROOT/bin:$PATH
+#LD_LIBRARY_PATH=$MPIROOT/lib:$LD_LIBRARY_PATH
+#MANPATH=$MPIROOT/share/man:$MANPATH
+#export MPIROOT PATH LD_LIBRARY_PATH MANPATH
+#
+## PetSc
+#PETSC_DIR=/opt/petsc/petsc-3.4.3
 
-# PetSc
-PETSC_DIR=/opt/petsc/petsc-3.4.3
-
-# emacs cliant
-export EDITOR=emacsclient
+export EDITOR= vim
 
 function do_enter() {
     if [ -n "$BUFFER" ]; then
@@ -270,7 +273,7 @@ function do_enter() {
     fi
     echo
     ls
-    # ↓おすすめ
+    # recomended.
     # ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo
@@ -283,5 +286,5 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
-#emacs freeze bug?
-stty -ixon
+##emacs freeze bug?
+#stty -ixon

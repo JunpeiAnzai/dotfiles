@@ -156,3 +156,13 @@ create & edit `~/,config/fontconfig/fonts.conf`
 
 ## pdf plugin
     yaourt -S chromium-libpdf
+
+# Intel parallel Studio XE
+first, you have to get license file *.lic.
+since package cache exceeds memory size of PC (`tmpfs` directory `/tmp`), mount `/tmp` in `ext4` and reboot.
+in `/etc/fstab`,
+    UUID=76a969c1-ba28-4b7e-848f-8c915fbcaa9b       /tmp               ext4            rw,relatime,data=ordered 0 1  
+and,  
+    yaourt -S intel-parallel-studio-xe  
+after installation and license activation, add to `/dotfiles/orig.zsh`
+    source /opt/intel/pkg_bin/compilervars.sh intel64

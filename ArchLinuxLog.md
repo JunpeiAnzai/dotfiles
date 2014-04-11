@@ -1,12 +1,12 @@
 # ctrl-caps swapping  
-edit `.profile`  
+edit `.profile`
     setxkbmap -option ctrl:swapcaps
     ln -s ~/dotfiles/.profile ~/.profile
 	
 # fcitx
 due to confliction to mozc-emacs, deleted.
-edit `/etc/locale.gen` coment-off  
-    ja_JP.UTF-8  
+edit `/etc/locale.gen` coment-off
+    ja_JP.UTF-8
 and
     sudo locale-gen
     gsettings set org.gnome.settings-daemon.plugins.keyboard active false
@@ -14,7 +14,7 @@ and
 in `~/dotfiles/.xprofile`
     export GTK_IM_MODULE=ibus
     export QT_IM_MODULE=ibus
-    export XMODIFIERS="@im=ibus"  
+    export XMODIFIERS="@im=ibus"
 
 deleted.
 # ibus-mozc

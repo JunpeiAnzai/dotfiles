@@ -126,6 +126,10 @@ add marmarade package repository and `package-refresh-contents`.
     cp -r auto-complete-latex ~/.emacs.d/lisp/
 
 ## markdown-mode.el
+first,
+
+    yaourt -S markdown
+
 `package-install` and choose `markdown-mode`
 
 ## yatex
@@ -199,6 +203,3 @@ after installation and license activation, add to `/dotfiles/orig.zsh`
     source /opt/intel/pkg_bin/compilervars.sh intel64
 final, recover `/etc/fstab` configuration.
 
-# markdown
-    yaourt -S markdown
-	

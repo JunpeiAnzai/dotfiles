@@ -26,7 +26,7 @@ export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 
 #export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
 
-export EDITOR= vim
+export EDITOR=vim
 # Intel compiler
 #source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
 

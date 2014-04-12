@@ -39,9 +39,10 @@ create/edit `~/dotfiles/.fonts.conf`
 stab  
 
 # oh-my-zsh
+deleted.
+
     yaourt -S wget
     wget --no-check-certificate http://install.ohmyz.sh -O - | sh
-stab  
 
 # tmux  
     pacman -S tmux  
@@ -99,11 +100,21 @@ download Inconsolata and Migu1M.
 # emacs
 ## mozc.el
     yaourt -Ss mozc
-conflict to mozc-fcitx. remove mozc-fcitx.  
+conflict to mozc-fcitx. remove mozc-fcitx.
+
 ## twittering-mode
     git clone git://github.com/hayamiz/twittering-mode.git
     cp twittering-mode.el ~/.emacs.d/lisp/
-## solarized  
+
+## Undo-Tree
+`package-install` and choose `undo-tree`.  
+edit `init.el`
+
+    (require 'undo-tree)
+    (global-undo-tree-mode)
+
+
+## solarized
 goto solarized section.
 stab  
 
@@ -115,7 +126,7 @@ add marmarade package repository and `package-refresh-contents`.
     cp -r auto-complete-latex ~/.emacs.d/lisp/
 
 ## markdown-mode.el
-`package-install` and choose `markdown-mode`  
+`package-install` and choose `markdown-mode`
 
 ## yatex
     hg clone http://www.yatex.org/hgrepos/yatex yatex

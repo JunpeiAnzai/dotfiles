@@ -29,9 +29,9 @@ export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 export EDITOR=vim
 # Intel compiler
 #source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
-
 source /opt/intel/pkg_bin/compilervars.sh intel64
-
+# zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## Default shell configuration
 #
@@ -340,3 +340,4 @@ then
     zstyle ':chpwd:*' recent-dirs-default yes
     zstyle ':completion:*' recent-dirs-insert both
 fi
+

@@ -203,3 +203,5 @@ after installation and license activation, add to `/dotfiles/orig.zsh`
     source /opt/intel/pkg_bin/compilervars.sh intel64
 final, recover `/etc/fstab` configuration.
 
+# gcc-fortran
+    yaourt -S gcc-fortran

@@ -22,7 +22,7 @@ compinit
 #export LESS='-R'
 export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 
-#export TERM=xterm-256color
+export TERM=xterm-256color
 
 #export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
 

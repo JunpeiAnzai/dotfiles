@@ -7,7 +7,7 @@ sudo add-apt-repository -y ppa:marlin-devs/marlin-daily
 sudo apt-add-repository -y ppa:starws-box/deadbeef-player
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
 sudo apt-get update
-sudo apt-get -y install emacs zsh texlive byobu source-highlight ibus-mozc mozc-server mozc-utils-gui emacs-mozc emacs-mozc-bin ibus-el fontforge gpicview monkeytail alien xdvik-ja xorg-dev ubuntu-tweak wine linux-headers-generic ttf-inconsolata ttf-takao build-essential omake omake-doc git marlin deadbeef-player ap-hotspot yatex auto-complete-el easypg mercurial
+sudo apt-get -y install emacs zsh texlive byobu source-highlight ibus-mozc mozc-server mozc-utils-gui emacs-mozc emacs-mozc-bin ibus-el fontforge gpicview monkeytail alien xdvik-ja xorg-dev ubuntu-tweak wine linux-headers-generic ttf-inconsolata ttf-takao build-essential omake omake-doc git marlin deadbeef-player ap-hotspot yatex auto-complete-el easypg mercurial gitk
 export LESS='-R'
 export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
 #---------- cocot ----------------

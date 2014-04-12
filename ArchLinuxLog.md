@@ -205,3 +205,7 @@ final, recover `/etc/fstab` configuration.
 
 # gcc-fortran
     yaourt -S gcc-fortran
+
+# zukitwo-theme
+    yaourt -S zukitwo-themes
+	yaourt -S ttf-droid

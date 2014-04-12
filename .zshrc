@@ -153,9 +153,7 @@ alias df="df -h"
 
 alias su="su -l"
 
-#alias yitp="ssh mercury.yukawa.kyoto-u.ac.jp"
-
-#alias emacs="env TERM=xterm XMODIFIERS=@im=none emacs"
+alias emacs="env TERM=xterm-256color emacs -nw"
 
 #background
 

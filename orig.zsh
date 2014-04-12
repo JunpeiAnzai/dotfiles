@@ -20,11 +20,18 @@ compinit
 #export LANG=ja_JP.UTF-8
 
 #export LESS='-R'
-export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 
 #export TERM=xterm-256color
 
 #export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
+
+export EDITOR= vim
+# Intel compiler
+#source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
+
+source /opt/intel/pkg_bin/compilervars.sh intel64
+
 
 ## Default shell configuration
 #
@@ -251,10 +258,6 @@ function google() {
   w3m http://www.google.co.jp/$opt
 }
 
-# Intel compiler
-#source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
-source /opt/intel/pkg_bin/compilervars.sh intel64
-
 ## Open MPI
 #MPIROOT=/usr/local/openmpi
 #PATH=$MPIROOT/bin:$PATH
@@ -264,8 +267,6 @@ source /opt/intel/pkg_bin/compilervars.sh intel64
 #
 ## PetSc
 #PETSC_DIR=/opt/petsc/petsc-3.4.3
-
-export EDITOR= vim
 
 function do_enter() {
     if [ -n "$BUFFER" ]; then

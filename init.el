@@ -186,9 +186,9 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
 ;(load-theme 'solarized-light t t) 
-;(load-theme 'solarized-dark t t)
+(load-theme 'solarized-dark t t)
 
 (require 'auto-complete-config)
 (ac-config-default)
@@ -316,3 +316,7 @@
 ; markdown-mode
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)

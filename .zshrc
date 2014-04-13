@@ -25,6 +25,7 @@ export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 export TERM=xterm-256color
 
 #export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
+export PATH=${PATH}:${HOME}/bin
 
 export EDITOR=vim
 # Intel compiler

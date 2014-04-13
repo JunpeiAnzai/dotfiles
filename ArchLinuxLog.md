@@ -180,13 +180,17 @@ and test connection,
 
 # chromium
 ## font rendoring
-create & edit `~/,config/fontconfig/fonts.conf`
+edit `~/dotfiles/fonts.conf`
 
     <match target="font">
       <edit mode="assign" name="autohint"><bool>true</bool></edit>
       <edit mode="assign" name="hinting"><bool>true</bool></edit>
       <edit mode="assign" name="hintstyle"><const>hintslight</const></edit>
     </match>
+
+and
+
+	ln -s ~/dotfiles/fonts.conf ~/.config/fontconfig/fonts.conf
 
 ## flash plugin
     yaourt -S chromium-pepper-flash

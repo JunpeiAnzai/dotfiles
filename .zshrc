@@ -19,7 +19,7 @@ compinit
 #
 #export LANG=ja_JP.UTF-8
 
-#export LESS='-R'
+export LESS='-R'
 export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'
 
 export TERM=xterm-256color

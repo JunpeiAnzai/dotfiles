@@ -194,7 +194,7 @@ fi
 
 autoload -U colors && colors
 
-PROMPT="%{$fg[cyan]%}%n%{$resetcolor%}@%{$fg[blue]%}%m%{$resetcolor%} %# "
+PROMPT="%{$fg[cyan]%}%n%{$resetcolor%}@%{$fg[blue]%}%M%{$resetcolor%} %# "
 # ## terminal configuration
 # #
 # unset LSCOLORS
@@ -297,7 +297,7 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
-##emacs freeze bug?
+##emacs freeze bung?
 #stty -ixon
 
 #

@@ -225,3 +225,9 @@ edit `/etc/psd.conf`
 	sudo systemctl start psd psd-resync
 check whether psd runs properly or not,
     profile-sync-daemon parse
+
+# dropbox
+    yaourt -S dropbox
+	yaourt -S nautilus-dropbox
+
+edit `.profile`, add `dropboxd`

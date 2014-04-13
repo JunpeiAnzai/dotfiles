@@ -235,3 +235,7 @@ edit `.profile`, add `dropboxd &`
 # mendeleydesktop
     yaourt -S mendeleydesktop
 	
+# gvfs-smb
+    yaourt -S gvfs-smb
+nautilus doesn't show windows network automatically?  
+stab

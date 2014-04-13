@@ -191,6 +191,10 @@ eval $(dircolors ~/github/dircolors-solarized/dircolors.256dark)
 if [ -n "$LS_COLORS" ]; then
         zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
+
+autoload -U colors && colors
+
+PROMPT="%{$fg[cyan]%}%n%{$resetcolor%}@%{$fg[blue]%}%m%{$resetcolor%} %# "
 # ## terminal configuration
 # #
 # unset LSCOLORS

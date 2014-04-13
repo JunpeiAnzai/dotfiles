@@ -44,15 +44,15 @@ deleted.
     yaourt -S wget
     wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
-# tmux  
-    pacman -S tmux  
+# tmux
+    pacman -S tmux
 
 ## tmux-mem-cpu-load
     yaourt -S tmux-mem-cpu-load
 edit `.tmux.conf` and,
 
-
-
+    tmux -source ~/.tmux.conf
+	
 # solarlized
 ## terminal(xterm)
     wget https://raw.githubusercontent.com/altercation/solarized/master/xresources/solarized
@@ -85,8 +85,8 @@ edit ~/.emacs.d/init.el
     git clone https://github.com/erikw/tmux-powerline.git
 stab
 
-# source-highlight  
-    yaourt -S source-highlight  
+# source-highlight
+    yaourt -S source-highlight
 
 # ricty
     yaourt -S fontforge

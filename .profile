@@ -1,2 +1,2 @@
 setxkbmap -option ctrl:swapcaps
-dropboxd
+dropboxd &

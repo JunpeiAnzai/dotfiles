@@ -231,3 +231,7 @@ check whether psd runs properly or not,
 	yaourt -S nautilus-dropbox
 
 edit `.profile`, add `dropboxd &`
+
+# mendeleydesktop
+    yaourt -S mendeleydesktop
+	

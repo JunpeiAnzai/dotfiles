@@ -47,6 +47,12 @@ deleted.
 # tmux  
     pacman -S tmux  
 
+## tmux-mem-cpu-load
+    yaourt -S tmux-mem-cpu-load
+edit `.tmux.conf` and,
+
+
+
 # solarlized
 ## terminal(xterm)
     wget https://raw.githubusercontent.com/altercation/solarized/master/xresources/solarized

@@ -230,4 +230,4 @@ check whether psd runs properly or not,
     yaourt -S dropbox
 	yaourt -S nautilus-dropbox
 
-edit `.profile`, add `dropboxd`
+edit `.profile`, add `dropboxd &`

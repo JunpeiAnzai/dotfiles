@@ -209,3 +209,13 @@ final, recover `/etc/fstab` configuration.
 # zukitwo-theme
     yaourt -S zukitwo-themes
 	yaourt -S ttf-droid
+    yaourt -S gnome-tweak-tool
+
+# profile-sync-daemon
+    yaourt -S profile-sync-daemon
+edit `/etc/psd.conf`
+
+    sudo systemctl enable psd psd-resync
+	sudo systemctl start psd psd-resync
+check whether psd runs properly or not,
+    profile-sync-daemon parse

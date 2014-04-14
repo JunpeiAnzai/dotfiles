@@ -243,3 +243,20 @@ edit `.profile`, add `dropboxd &`
     yaourt -S gvfs-smb
 nautilus doesn't show windows network automatically?  
 stab
+
+# wifi
+    yaourt -S dhclient
+
+edit `/etc/netctl/wlp2s0-ssid
+
+    ForceConnect=yes
+	DHCPClient='dhclient'
+
+and connect,
+
+    # netctl start wlp2s0-ssid
+
+startup
+
+    # netctl enable wlp2s0-ssid
+    

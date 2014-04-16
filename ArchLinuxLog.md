@@ -260,3 +260,9 @@ startup
 
     # netctl enable wlp2s0-ssid
     
+
+# hdparm
+    yaourt -S hdparm
+
+# SSD TRIM support
+edit `/etc/fstab`, add option `discard`

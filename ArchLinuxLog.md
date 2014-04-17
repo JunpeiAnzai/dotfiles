@@ -266,3 +266,9 @@ startup
 
 # SSD TRIM support
 edit `/etc/fstab`, add option `discard`
+
+# NetworkManager
+    sudo systemctl disable netctl
+	sudo systemctl disable netctl@ssid
+	sudo systemctl enable NetworkManager NetworkManager-dispatcher ModemManager
+	sudo systemctl start NetworkManager NetworkManager-dispatcher ModemManager

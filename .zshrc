@@ -194,7 +194,7 @@ fi
 
 autoload -U colors && colors
 
-PROMPT="%{$fg[cyan]%}%n%{$resetcolor%}@%{$fg[blue]%}%M%{$resetcolor%} %# "
+PROMPT="%{$fg[cyan]%}%n%{$resetcolor%}@%{$fg[blue]%}%M %D{%m/%d %T}%{$resetcolor%} %# "
 # ## terminal configuration
 # #
 # unset LSCOLORS

@@ -258,60 +258,74 @@
 
 ;; flymake
 (require 'flymake)
-(add-hook 'find-file-hook 'flymake-find-file-hook)
-;;; Makefile doesn't exist
-(defun my:flymake-simple-generic-init (cmd &optional opts)
-  (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		     'flymake-create-temp-inplace))
+
+(defun flymake-f90-init ()
+  (let* (( temp-file (flymake-init-create-temp-buffer-copy
+		      'flymake-create-temp-inplace))
+	 (local-dir (file-name-directory buffer-file-name))
 	 (local-file (file-relative-name
 		      temp-file
-		      (file-name-directory buffer-file-name))))
-    (list cmd (append opts (list local-file)))))
-;;; Makefile exist
-(defun my:flymake-simple-make-or-generic-init (cmd &optional opts)
-  (if (file-exists-p "Makefile")
-      (flymake-simple-make-init)
-    (my:flymake-simple-generic-init cmd opts)))
-;;; fortran90 or 95
-;(defun my:flymake-gfortran-init ()
-;    (my:flymake-simple-make-or-generic-init
-;        "gfortran" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
-;(defun my:flymake-g95-init ()
-;    (my:flymake-simple-make-or-generic-init
-;        "g95" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
+		      local-dir)))
+    (list "ifort" (list "-syntax-only" "-check all" local-file))))
+(push '(".+\\f90$" flymake-f90-init) flymake-allowed-file-name-masks)
 
-; fortran
-(setq fortran-mode-hook
-      '(lambda ()
-	 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
-	 (define-key fortran-mode-map "\C-cc" 'compile)
-))
-; f90
-(setq f90-mode-hook
-      '(lambda ()
-	 (define-key f90-mode-map "\C-j" 'f90-indent-new-line)
-	 (define-key f90-mode-map "\C-cc" 'compile)))
 (add-hook 'f90-mode-hook
 	  '(lambda ()
 	     (flymake-mode t)))
+;; (add-hook 'find-file-hook 'flymake-find-file-hook)
+;; ;;; Makefile doesn't exist
+;; (defun my:flymake-simple-generic-init (cmd &optional opts)
+;;   (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;; 		     'flymake-create-temp-inplace))
+;; 	 (local-file (file-relative-name
+;; 		      temp-file
+;; 		      (file-name-directory buffer-file-name))))
+;;     (list cmd (append opts (list local-file)))))
+;; ;;; Makefile exist
+;; (defun my:flymake-simple-make-or-generic-init (cmd &optional opts)
+;;   (if (file-exists-p "Makefile")
+;;       (flymake-simple-make-init)
+;;     (my:flymake-simple-generic-init cmd opts)))
+;; ;;; fortran90 or 95
+;; ;(defun my:flymake-gfortran-init ()
+;; ;    (my:flymake-simple-make-or-generic-init
+;; ;        "gfortran" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
+;; ;(defun my:flymake-g95-init ()
+;; ;    (my:flymake-simple-make-or-generic-init
+;; ;        "g95" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
 
-;; minimal, non-make g95 setup
-(defun flymake-g95-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		            'flymake-create-temp-inplace))
-	    (local-file (file-relative-name
-			       temp-file
-			             (file-name-directory buffer-file-name))))
-          (list "/usr/bin/gfortran" (list "-c" local-file))))
+;; ; fortran
+;; (setq fortran-mode-hook
+;;       '(lambda ()
+;; 	 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
+;; 	 (define-key fortran-mode-map "\C-cc" 'compile)
+;; ))
+;; ; f90
+;; (setq f90-mode-hook
+;;       '(lambda ()
+;; 	 (define-key f90-mode-map "\C-j" 'f90-indent-new-line)
+;; 	 (define-key f90-mode-map "\C-cc" 'compile)))
+;; (add-hook 'f90-mode-hook
+;; 	  '(lambda ()
+;; 	     (flymake-mode t)))
 
-(setq flymake-allowed-file-name-masks
-            (cons '(".+\\.[fF]90$"
-		          flymake-g95-init
-			        flymake-simple-cleanup
-				      flymake-get-real-file-name)
-		      flymake-allowed-file-name-masks))
+;; ;; minimal, non-make g95 setup
+;; (defun flymake-g95-init ()
+;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;; 		            'flymake-create-temp-inplace))
+;; 	    (local-file (file-relative-name
+;; 			       temp-file
+;; 			             (file-name-directory buffer-file-name))))
+;;           (list "/usr/bin/gfortran" (list "-c" local-file))))
 
-(push '("^In file \\(.+\\):\\([0-9]+\\)" 1 2) flymake-err-line-patterns)
+;; (setq flymake-allowed-file-name-masks
+;;             (cons '(".+\\.[fF]90$"
+;; 		          flymake-g95-init
+;; 			        flymake-simple-cleanup
+;; 				      flymake-get-real-file-name)
+;; 		      flymake-allowed-file-name-masks))
+
+;; (push '("^In file \\(.+\\):\\([0-9]+\\)" 1 2) flymake-err-line-patterns)
 
 ; markdown-mode
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)

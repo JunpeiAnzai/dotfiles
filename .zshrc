@@ -187,7 +187,7 @@ esac
 
 # LSCOLOR use dircolor-solarized
 eval $(dircolors ~/github/dircolors-solarized/dircolors.256dark)
-## 補完にも適用
+##
 if [ -n "$LS_COLORS" ]; then
         zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
@@ -334,8 +334,8 @@ function rprompt-git-current-branch {
          fi
 
               
-        echo "$color$name$action%f%b "
-}
+        echo "$color$name$action%f%b "}
+
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
 

@@ -272,6 +272,20 @@
 (add-hook 'f90-mode-hook
 	  '(lambda ()
 	     (flymake-mode t)))
+(defun flymake-F77-init ()
+  (let* (( temp-file (flymake-init-create-temp-buffer-copy
+		      'flymake-create-temp-inplace))
+	 (local-dir (file-name-directory buffer-file-name))
+	 (local-file (file-relative-name
+		      temp-file
+		      local-dir)))
+    (list "ifort" (list "-syntax-only" "-check all" local-file))))
+(push '(".+\\f$" flymake-F77-init) flymake-allowed-file-name-masks)
+
+(add-hook 'fortran-mode-hook
+	  '(lambda ()
+	     (flymake-mode t)))
+
 ;; (add-hook 'find-file-hook 'flymake-find-file-hook)
 ;; ;;; Makefile doesn't exist
 ;; (defun my:flymake-simple-generic-init (cmd &optional opts)

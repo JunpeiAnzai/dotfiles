@@ -272,3 +272,7 @@ edit `/etc/fstab`, add option `discard`
 	sudo systemctl disable netctl@ssid
 	sudo systemctl enable NetworkManager NetworkManager-dispatcher ModemManager
 	sudo systemctl start NetworkManager NetworkManager-dispatcher ModemManager
+
+# suspend when laptop lid is closed.
+edit `/etc/systemd/logind.conf`
+    HandleLidSwitch=Suspend

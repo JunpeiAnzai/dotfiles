@@ -256,6 +256,21 @@
 ;; yes/no -> y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+; fortran
+(setq fortran-mode-hook
+      '(lambda ()
+	 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
+	 (define-key fortran-mode-map "\C-cc" 'compile)
+))
+; f90
+(setq f90-mode-hook
+      '(lambda ()
+	 (define-key f90-mode-map "\C-j" 'f90-indent-new-line)
+	 (define-key f90-mode-map "\C-cc" 'compile)))
+(add-hook 'f90-mode-hook
+	  '(lambda ()
+	     (flymake-mode t)))
+
 ;; flymake
 (require 'flymake)
 
@@ -307,21 +322,6 @@
 ;; ;(defun my:flymake-g95-init ()
 ;; ;    (my:flymake-simple-make-or-generic-init
 ;; ;        "g95" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
-
-;; ; fortran
-;; (setq fortran-mode-hook
-;;       '(lambda ()
-;; 	 (define-key fortran-mode-map "\C-j" 'fortran-indent-new-line)
-;; 	 (define-key fortran-mode-map "\C-cc" 'compile)
-;; ))
-;; ; f90
-;; (setq f90-mode-hook
-;;       '(lambda ()
-;; 	 (define-key f90-mode-map "\C-j" 'f90-indent-new-line)
-;; 	 (define-key f90-mode-map "\C-cc" 'compile)))
-;; (add-hook 'f90-mode-hook
-;; 	  '(lambda ()
-;; 	     (flymake-mode t)))
 
 ;; ;; minimal, non-make g95 setup
 ;; (defun flymake-g95-init ()

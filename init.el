@@ -323,21 +323,21 @@
 ;; ;    (my:flymake-simple-make-or-generic-init
 ;; ;        "g95" '("-O2" "-Wall" "-Wextra" "-fsyntax-only")))
 
-;; minimal, non-make g95 setup
-(defun flymake-g95-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		            'flymake-create-temp-inplace))
-	    (local-file (file-relative-name
-			       temp-file
-			             (file-name-directory buffer-file-name))))
-          (list "/usr/bin/gfortran" (list "-c" local-file))))
+;; ;; minimal, non-make g95 setup
+;; (defun flymake-g95-init ()
+;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;; 		            'flymake-create-temp-inplace))
+;; 	    (local-file (file-relative-name
+;; 			       temp-file
+;; 			             (file-name-directory buffer-file-name))))
+;;           (list "/usr/bin/gfortran" (list "-c" local-file))))
 
-(setq flymake-allowed-file-name-masks
-            (cons '(".+\\.[fF]90$"
-		          flymake-g95-init
-			        flymake-simple-cleanup
-				      flymake-get-real-file-name)
-		      flymake-allowed-file-name-masks))
+;; (setq flymake-allowed-file-name-masks
+;;             (cons '(".+\\.[fF]90$"
+;; 		          flymake-g95-init
+;; 			        flymake-simple-cleanup
+;; 				      flymake-get-real-file-name)
+;; 		      flymake-allowed-file-name-masks))
 
 ;; (push '("^In file \\(.+\\):\\([0-9]+\\)" 1 2) flymake-err-line-patterns)
 

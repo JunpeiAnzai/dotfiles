@@ -279,3 +279,4 @@ edit `/etc/systemd/logind.conf`
 
 # gnuplot
     yaourt -S gnuplot
+edit `init.el`, enable gnuplot-mode.

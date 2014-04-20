@@ -276,3 +276,6 @@ edit `/etc/fstab`, add option `discard`
 # suspend when laptop lid is closed.
 edit `/etc/systemd/logind.conf`
     HandleLidSwitch=Suspend
+
+# gnuplot
+    yaourt -S gnuplot

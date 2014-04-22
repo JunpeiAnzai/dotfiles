@@ -280,3 +280,7 @@ edit `/etc/systemd/logind.conf`
 # gnuplot
     yaourt -S gnuplot
 edit `init.el`, enable gnuplot-mode.
+
+# japanese in pdf (under using pdf viewer evince)
+    yaourt -S xpdf-languages
+	yaourt -S poppler-data

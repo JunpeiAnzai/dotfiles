@@ -352,6 +352,12 @@
 ; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+; undohist
+(require 'undohist)
+(undohist-initialize)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -368,3 +368,18 @@
 ;; be loaded into gnuplot mode
 (setq auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist))
 
+; CEDET
+(load-library "cedet") (global-ede-mode 1) (semantic-mode 1)
+
+; popwin
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
+; direx
+(require 'direx)
+(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+
+; direx with popwin
+(push '(direx:direx-mode :position left :width 25 :dedicated t)
+            popwin:special-display-config)
+(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)

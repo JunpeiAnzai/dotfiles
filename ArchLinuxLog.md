@@ -119,7 +119,13 @@ edit `init.el`
     (require 'undo-tree)
     (global-undo-tree-mode)
 
+## undohist
+`auto-install-from-url`
+    http://cx4a.org/pub/undohist.el
 
+edit `init.el`
+    (require 'undohist)
+	(undohist-initialize)
 ## solarized
 goto solarized section.
 stab  

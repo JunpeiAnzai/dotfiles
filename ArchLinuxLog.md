@@ -155,6 +155,34 @@ stab
 ## magit
 `package-install` and choose `magit`
 
+## popwin
+
+	git clone https://github.com/m2ym/popwin-el.git
+	cp popwin.el ~/.emacs.d/lisp/
+
+edit `init.el`
+
+    (require 'popwin)
+	(setq display-buffer-function 'popwin:display-buffer)
+
+
+## direx
+
+    git clone https://github.com/m2ym/direx-el.git
+    cp direx* ~/.emacs.d/lisp/
+
+edit `init.el`
+
+    (require 'direx)
+	(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+
+after installation `popwin.el`,
+
+    (push '(direx:direx-mode :position left :width 25 :dedicated t)
+	      popwin:special-display-config)
+    (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
+
+
 # aspell
 create `.aspell.conf` and edit
 
@@ -245,6 +273,7 @@ nautilus doesn't show windows network automatically?
 stab
 
 # wifi
+    iw link set wlp2s0 up
     yaourt -S dhclient
 
 edit `/etc/netctl/wlp2s0-ssid

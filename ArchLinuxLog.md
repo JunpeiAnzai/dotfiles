@@ -131,7 +131,16 @@ goto solarized section.
 stab  
 
 ## auto-complete.el
-add marmarade package repository and `package-refresh-contents`. 
+add repositories
+
+    (add-to-list 'package-archives 
+        '("marmalade" .
+          "http://marmalade-repo.org/packages/"))
+    (add-to-list 'package-archives
+      '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (package-initialize)
+
+and `package-refresh-contents`. 
 `install-package` and choose `auto-complete`.
 
     hg clone https://bitbucket.org/tequilasunset/auto-complete-latex
@@ -187,6 +196,15 @@ after installation `popwin.el`,
     (push '(direx:direx-mode :position left :width 25 :dedicated t)
 	      popwin:special-display-config)
     (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
+
+
+## ctxmenu
+`package-install` from melpa, `ctxmenu`  
+edit `init.el`
+
+    (require 'ctxmenu)
+    (require 'ctxmenu-config)
+    (define-key global-map (kbd "M-@") 'ctxmenu:show)
 
 
 # aspell

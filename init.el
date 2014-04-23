@@ -190,6 +190,10 @@
 ;(load-theme 'solarized-light t t) 
 (load-theme 'solarized-dark t t)
 
+; ignore Capital Case
+(setq read-file-name-completion-ignore-case t)
+
+; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
 

@@ -206,6 +206,13 @@ edit `init.el`
     (require 'ctxmenu-config)
     (define-key global-map (kbd "M-@") 'ctxmenu:show)
 
+## deferred and inertial-scroll
+eval
+
+    (auto-install-from-url "http://github.com/kiwanami/emacs-deferred/raw/master/deferred.el")
+	(auto-install-from-url "http://github.com/kiwanami/emacs-inertial-scroll/raw/master/inertial-scroll.el")
+
+and edit init.eln
 
 # aspell
 create `.aspell.conf` and edit
@@ -337,3 +344,12 @@ edit `init.el`, enable gnuplot-mode.
 # japanese in pdf (under using pdf viewer evince)
     yaourt -S xpdf-languages
 	yaourt -S poppler-data
+
+# mpd
+    yaourt -S mpd mpc
+	chown -R mpd /var/lib/mpd
+
+edit `/etc/mpd.conf`
+
+# alsa
+    yaourt -S alsa-utils

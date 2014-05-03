@@ -401,3 +401,14 @@
 (require 'ctxmenu-config)
 (define-key global-map (kbd "M-@") 'ctxmenu:show)
 (ctxmenu-config:setup)
+
+(require 'inertial-scroll)
+(setq inertias-global-minor-mode-map
+      (inertias-define-keymap
+       '(
+	 ("<next>"  . inertias-up)
+	 ("<prior>" . inertias-down)
+	 ("C-v"     . inertias-up)
+	 ("M-v"     . inertias-down)
+	 ) inertias-prefix-key))
+(inertias-global-minor-mode 1)

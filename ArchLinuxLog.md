@@ -28,6 +28,7 @@ deleted.
 
     yaourt -S ttf-migmix
 	yaourt -S otf-ipaexfont
+	yaourt -S ttf-linux-libertine
 	
 create/edit `~/dotfiles/.fonts.conf`
 

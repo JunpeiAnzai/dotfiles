@@ -27,6 +27,7 @@ deleted.
 # system font
 
     yaourt -S ttf-migmix
+	yaourt -S otf-ipaexfont
 	
 create/edit `~/dotfiles/.fonts.conf`
 

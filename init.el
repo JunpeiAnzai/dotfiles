@@ -201,6 +201,7 @@
 
 (define-key ac-completing-map "\C-h" 'ac-stop)
 
+;; auto-complete latex mode
 (setq load-path
       (append '("~/.emacs.d/auto-complete-latex")
               load-path))
@@ -209,10 +210,13 @@
   (add-to-list 'ac-modes 'latex-mode)
   (add-hook 'latex-mode-hook 'ac-l-setup)
     ;; for YaTeX
-          (when (require 'auto-complete-latex nil t)
-            (setq ac-l-dict-directory "~/.emacs.d/auto-complete-latex/ac-l-dict/")
-            (add-to-list 'ac-modes 'yatex-mode)
-            (add-hook 'yatex-mode-hook 'ac-l-setup))
+(when (require 'auto-complete-latex nil t)
+  (setq ac-l-dict-directory "~/.emacs.d/auto-complete-latex/ac-l-dict/")
+  (add-to-list 'ac-modes 'yatex-mode)
+  (add-hook 'yatex-mode-hook 'ac-l-setup))
+
+;; auto-complete f90 mode
+
 
 ;;;
 ;;; org-mode
@@ -404,11 +408,11 @@
 
 (require 'inertial-scroll)
 (setq inertias-global-minor-mode-map
-      (inertias-define-keymap
-       '(
-	 ("<next>"  . inertias-up)
-	 ("<prior>" . inertias-down)
-	 ("C-v"     . inertias-up)
-	 ("M-v"     . inertias-down)
-	 ) inertias-prefix-key))
+(inertias-define-keymap
+'(
+("<next>"  . inertias-up)
+("<prior>" . inertias-down)
+("C-v"     . inertias-up)
+("M-v"     . inertias-down)
+) inertias-prefix-key))
 (inertias-global-minor-mode 1)

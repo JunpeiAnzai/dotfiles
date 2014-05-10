@@ -82,7 +82,8 @@ edit ~/.emacs.d/init.el
 
     (add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
     (load-theme 'solarized-dark t t) 
-    
+
+
 # tmux-powerline
     git clone https://github.com/erikw/tmux-powerline.git
 stab
@@ -148,6 +149,8 @@ and `package-refresh-contents`.
     hg clone https://bitbucket.org/tequilasunset/auto-complete-latex
     cp -r auto-complete-latex ~/.emacs.d/lisp/
 
+add f90 dictionary
+    ln -s ~/dotfiles/f90-mode ~/.emacs.d/elpa/auto-complete-1.4/dict/f90-mode
 ## markdown-mode.el
 first,
 

@@ -547,3 +547,12 @@
 (shell-command-on-region (point-min) (point-max)
     (concat "grep -n ^ " buffer-file-name)
     (get-buffer-create "*tmp-linum*") nil t)
+
+;; Wind Move
+;; http://www.emacswiki.org/emacs/WindMove
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)

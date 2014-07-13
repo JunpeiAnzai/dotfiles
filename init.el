@@ -397,7 +397,7 @@
 
 ; direx
 (require 'direx)
-(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+;;(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
 
 ; direx with popwin
 (push '(direx:direx-mode :position left :width 25 :dedicated t)

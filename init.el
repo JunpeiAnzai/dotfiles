@@ -552,3 +552,6 @@
 (global-set-key (kbd "C-c l") 'windmove-right)
 (global-set-key (kbd "C-c k")    'windmove-up)
 (global-set-key (kbd "C-c j")  'windmove-down)
+
+;; for emacs 24.4
+(electric-indent-mode -1)

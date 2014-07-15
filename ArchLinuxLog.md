@@ -29,6 +29,7 @@ deleted.
     yaourt -S ttf-migmix
 	yaourt -S otf-ipaexfont
 	yaourt -S ttf-linux-libertine
+	yaourt -S ttf-vlgothic
 	
 create/edit `~/dotfiles/.fonts.conf`
 
@@ -285,6 +286,7 @@ final, recover `/etc/fstab` configuration.
 	yaourt -S ttf-droid
     yaourt -S gnome-tweak-tool
 
+ttf-droid conflicts ttf-google-fonts
 # profile-sync-daemon
     yaourt -S profile-sync-daemon
 edit `/etc/psd.conf`
@@ -307,6 +309,10 @@ edit `.profile`, add `dropboxd &`
     yaourt -S gvfs-smb
 nautilus doesn't show windows network automatically?  
 stab
+
+# ntfs-3g
+    yaourt -S ntfs-3g
+
 
 # wifi
     iw link set wlp2s0 up
@@ -356,5 +362,27 @@ edit `init.el`, enable gnuplot-mode.
 
 edit `/etc/mpd.conf`
 
+# ncmpcpp
+    yaourt -S ncmpcpp
+    ln -s ~/dotfiles/ncmpcpp_config ~/.ncmpcpp/config
+## edit keybindings
+    sudo cp /usr/share/ncmpcpp/keys ~/dotfiles/ncmpcpp_keys
+    ln -s ~/dotfiles/ncmpcpp ~/.ncmpcpp/keys
+
 # alsa
     yaourt -S alsa-utils
+
+# microsoft fonts
+    yaourt -S ttf-ms-fonts
+
+# google fonts
+    yaourt -S ttf-google-fonts-git
+
+# scheme
+    yaourt -S gauche
+	yaourt -S quack
+
+# teamviewer9
+edit `/etc/pacman.conf`. uncomment multilib repository(2 lines).  
+
+    yaourt -S teamviewer

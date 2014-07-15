@@ -29,8 +29,10 @@
 #key_down_artist = '}'
 #
 #key_page_up = 339
+key_page_up = 'K'
 #
 #key_page_down = 338
+key_page_down = 'J'
 #
 #key_home = 262
 #

@@ -26,8 +26,13 @@ export TERM=xterm-256color
 
 #export PATH=${PATH}:/home/anzai/Development/android-sdk-linux/tools
 export PATH=${PATH}:${HOME}/bin
+# go lang path
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
 
 export EDITOR=vim
+
+
 # Intel compiler
 #source /opt/intel/composer_xe_2013.1.117/bin/compilervars.sh intel64
 source /opt/intel/pkg_bin/compilervars.sh intel64
@@ -350,3 +355,32 @@ then
     zstyle ':completion:*' recent-dirs-insert both
 fi
 
+#######################################
+# peco hitory
+#######################################
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+	tac="tac"
+    else
+	tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+		    eval $tac | \
+		    peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+function peco-cd () {
+    local selected_dir=$(find ~/ -type d | peco)
+    if [ -n "$selected_dir" ]; then
+	BUFFER="cd ${selected_dir}"
+	zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cd
+bindkey '^x^f' peco-cd

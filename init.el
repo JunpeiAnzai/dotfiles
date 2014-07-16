@@ -110,7 +110,7 @@
 (set-face-attribute 'default nil
                    :family "Ricty"
                    :height 160
-		   :spacing 0)
+		   )
 ;(set-fontset-font
 ; nil 'japanese-jisx0208
 ; (font-spec :family "Ricty"))
@@ -400,10 +400,17 @@
 (require 'direx)
 ;;(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
 
+;; http://d.hatena.ne.jp/rubikitch/20101126/keymap
+;; (makunbound 'overriding-minor-mode-map)
+(define-minor-mode overriding-minor-mode
+  "強制的にC-x C-jを割り当てる"             ;説明文字列
+  t                                     ;デフォルトで有効にする
+  ""                                    ;モードラインに表示しない
+    `((,(kbd "C-x C-j") . direx:jump-to-directory-other-window)))
 ; direx with popwin
 (push '(direx:direx-mode :position left :width 25 :dedicated t)
             popwin:special-display-config)
-(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
+;;(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
 
 ; ctxmenu
 (require 'ctxmenu)

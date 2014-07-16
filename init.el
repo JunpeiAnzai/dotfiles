@@ -109,7 +109,8 @@
 ;; Ricty {{{2 (http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)
 (set-face-attribute 'default nil
                    :family "Ricty"
-                   :height 160)
+                   :height 160
+		   :spacing 0)
 ;(set-fontset-font
 ; nil 'japanese-jisx0208
 ; (font-spec :family "Ricty"))
@@ -555,3 +556,7 @@
 
 ;; for emacs 24.4
 (electric-indent-mode -1)
+
+;; temporary. disable right -> left writing
+;; https://twitter.com/rubikitch/status/230707774336663554
+(setq-default bidi-display-reordering nil)

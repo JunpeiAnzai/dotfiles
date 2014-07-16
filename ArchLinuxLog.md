@@ -386,3 +386,9 @@ edit `/etc/mpd.conf`
 edit `/etc/pacman.conf`. uncomment multilib repository(2 lines).  
 
     yaourt -S teamviewer
+
+# golang
+    yaourt -S go
+
+## peco
+    go get github.com/lestrrat/peco/cmd/peco/

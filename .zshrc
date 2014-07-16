@@ -384,3 +384,5 @@ function peco-cd () {
 }
 zle -N peco-cd
 bindkey '^x^f' peco-cd
+
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'

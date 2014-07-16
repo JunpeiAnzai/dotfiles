@@ -107,13 +107,13 @@
 ; '(default ((t (:background "nil")))))
 
 ;; Ricty {{{2 (http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)
-(set-face-attribute 'default nil
-                   :family "Ricty"
-                   :height 160
-		   )
-;(set-fontset-font
-; nil 'japanese-jisx0208
-; (font-spec :family "Ricty"))
+ (set-face-attribute 'default nil
+                    :family "Ricty"
+                    :height 150
+ 		   )
+(set-fontset-font
+ nil 'japanese-jisx0208
+ (font-spec :family "Ricty"))
 
 (require 'twittering-mode)
 (setq twittering-use-master-password t)

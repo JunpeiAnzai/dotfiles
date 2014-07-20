@@ -30,6 +30,7 @@ deleted.
 	yaourt -S otf-ipaexfont
 	yaourt -S ttf-linux-libertine
 	yaourt -S ttf-vlgothic
+	yaourt -S source-han-sans
 	
 create/edit `~/dotfiles/.fonts.conf`
 
@@ -392,3 +393,8 @@ edit `/etc/pacman.conf`. uncomment multilib repository(2 lines).
 
 ## peco
     go get github.com/lestrrat/peco/cmd/peco/
+
+# colordiff
+    yaourt -S colordiff
+
+edit `.zshrc`

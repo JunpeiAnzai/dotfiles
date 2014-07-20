@@ -161,6 +161,8 @@ alias su="su -l"
 
 alias emacs="env TERM=xterm-256color emacs -nw"
 
+alias diff='colordiff -u'
+
 #background
 
 case "${OSTYPE}" in

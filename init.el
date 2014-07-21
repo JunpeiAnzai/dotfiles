@@ -258,8 +258,8 @@
 
 
 (setq indent-line-function 'indent-relative-maybe)
-; return で 改行 + auto indent
-(global-set-key "\C-m" 'newline-and-indent)
+;; ; return で 改行 + auto indent
+;; (global-set-key "\C-m" 'newline-and-indent)
 
 ;; magit
 (global-set-key "\C-cm" 'magit-status)
@@ -567,3 +567,9 @@
 ;; temporary. disable right -> left writing
 ;; https://twitter.com/rubikitch/status/230707774336663554
 (setq-default bidi-display-reordering nil)
+
+;; auto-save-buffers-enhanced
+(require 'auto-save-buffers-enhanced)
+;; save every idle time(1 second)
+(setq auto-save-buffers-enhanced-interval 1)
+(auto-save-buffers-enhanced t)

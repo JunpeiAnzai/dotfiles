@@ -91,20 +91,29 @@
 ;(require 'anything-startup)
 (setq fci-rule-color "#eee8d5")
 
-;(custom-set-variables
+(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-; '(ansi-color-names-vector [solarized-bg red green yellow blue magenta cyan solarized-fg])
-; '(custom-safe-themes (quote ("d24e10524bb50385f7631400950ba488fa45560afcadd21e6e03c2f5d0fad194" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" "72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "82926f759bc96ae4abb7ec58c3cc0d92f9031f24709e4b83dbf9dcb47f7c7970" "d6a00ef5e53adf9b6fe417d2b4404895f26210c52bb8716971be106550cea257" default)))
-;)
-;(custom-set-faces
-; ;; custom-set-faces was added by Custom.
-; ;; If you edit it by hand, you could mess it up, so be careful.
-; ;; Your init file should contain only one such instance.
-; ;; If there is more than one, they won't work right.
-; '(default ((t (:background "nil")))))
+ ;; '(ansi-color-names-vector
+   ;; ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
+ ;; '(background-color nil)
+ ;; '(background-mode dark)
+ ;; '(cursor-color nil)
+ ;; '(custom-safe-themes
+ ;;   (quote
+ ;;    ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(foreground-color nil)
+ '(quack-programs
+   (quote
+    ("mzscheme" "gauche" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background "nil")))))
 
 ;; Ricty {{{2 (http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)
  (set-face-attribute 'default nil
@@ -191,10 +200,9 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
-;(load-theme 'solarized-light t t) 
-(load-theme 'solarized-dark t t)
-(enable-theme 'solarized-dark)
+;; (load-theme 'solarized-light t t)
+(load-theme 'solarized-dark t)
+;; (enable-theme 'solarized-dark)
 
 ; ignore Capital Case
 (setq read-file-name-completion-ignore-case t)
@@ -368,19 +376,8 @@
 (undohist-initialize)
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
- '(quack-programs (quote ("mzscheme" "gauche" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+
 
  ; gnuplot-mode
 (autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
@@ -573,3 +570,7 @@
 ;; save every idle time(1 second)
 (setq auto-save-buffers-enhanced-interval 1)
 (auto-save-buffers-enhanced t)
+
+(require 'smartparens-config)
+(smartparens-global-mode t)
+

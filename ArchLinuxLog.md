@@ -316,6 +316,10 @@ stab
 
 
 # wifi
+need?  
+
+    yaourt -S wireless_tools
+
     iw link set wlp2s0 up
     yaourt -S dhclient
 

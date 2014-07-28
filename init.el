@@ -26,16 +26,16 @@
 
 ; powerline, syncronize with solarized
 ;(add-to-list 'load-path "~/.emacs.d/emacs-powerline")
-;(require 'powerline)
-;(setq powerline-color1 "#657b83")
-;(setq powerline-color2 "#839496")
+;;(require 'powerline)
+(setq powerline-color1 "#657b83")
+(setq powerline-color2 "#839496")
 
-;(set-face-attribute 'mode-line nil
-;                    :foreground "#fdf6e3"
-;                    :background "#859900"
-;                    :box nil)
-;(set-face-attribute 'mode-line-inactive nil
-;                    :box nil)
+;; (set-face-attribute 'mode-line nil
+;;                     :foreground "#fdf6e3"
+;;                     :background "#859900"
+;;                     :box nil)
+;; (set-face-attribute 'mode-line-inactive nil
+;;                     :box nil)
 
 (setq save-place-file "~/.emacs.d/.emacs-places")
 
@@ -140,7 +140,7 @@
 ;; mode-line format
 (setq mode-line-frame-identification " ")
 (column-number-mode t)
-;; (line-number-mode t)
+(line-number-mode -1)
 
 (require 'saveplace)
 (setq-default save-place t)

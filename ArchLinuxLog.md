@@ -87,6 +87,9 @@ edit ~/.emacs.d/init.el
 
 
 # tmux-powerline
+
+    yaourt -S bc
+	
     git clone https://github.com/erikw/tmux-powerline.git
 edit `.tmux.conf`
 
@@ -98,7 +101,7 @@ edit `.tmux.conf`
     set-option -g status-right-length 90
     set-option -g status-left "#(~/path/to/tmux-powerline/powerline.sh left)"
     set-option -g status-right "#(~/path/to/tmux-powerline/powerline.sh right)"
-
+http://matsu.teraren.com/blog/2013/02/10/moteru-tmux-powerline/
 
 # source-highlight
     yaourt -S source-highlight

@@ -88,7 +88,17 @@ edit ~/.emacs.d/init.el
 
 # tmux-powerline
     git clone https://github.com/erikw/tmux-powerline.git
-stab
+edit `.tmux.conf`
+
+    set-option -g status on
+    set-option -g status-interval 2
+    set-option -g status-utf8 on
+    set-option -g status-justify "centre"
+    set-option -g status-left-length 60
+    set-option -g status-right-length 90
+    set-option -g status-left "#(~/path/to/tmux-powerline/powerline.sh left)"
+    set-option -g status-right "#(~/path/to/tmux-powerline/powerline.sh right)"
+
 
 # source-highlight
     yaourt -S source-highlight
@@ -102,6 +112,14 @@ download Inconsolata and Migu1M.
     mkdir ~/.fonts
     cp -f Ricty*.ttf ~/.fonts/
     fc-cache -vf
+
+## patch powerline font for Ricty
+    git clone https://github.com/Lokaltog/vim-powerline.git
+    fontforge -lang=py -script ./vim-powerline/fontpatcher/fontpatcher $HOME/.fonts/Ricty-Regular.ttf
+    fontforge -lang=py -script ./vim-powerline/fontpatcher/fontpatcher $HOME/.fonts/Ricty-Bold.ttf
+    mv Ricty-Regular-Powerline.ttf ~/.fonts
+    mv Ricty-Bold-Powerline.ttf ~/.fonts
+    fc-cache -fv
 
 # disable cursor blink
     gsettings set org.gnome.desktop.interface cursor-blink false
@@ -316,6 +334,7 @@ stab
 
 
 # wifi
+https://wiki.archlinux.org/index.php/Lenovo_Ideapad_G580
 need?  
 
     yaourt -S wireless_tools
@@ -402,3 +421,11 @@ edit `/etc/pacman.conf`. uncomment multilib repository(2 lines).
     yaourt -S colordiff
 
 edit `.zshrc`
+
+# softwere access point
+
+    yaourt -S hostapd
+
+edit `/etc/hostapd/hostapd.conf`
+
+

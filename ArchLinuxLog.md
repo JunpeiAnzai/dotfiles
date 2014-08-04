@@ -432,3 +432,7 @@ edit `.zshrc`
 edit `/etc/hostapd/hostapd.conf`
 
 
+## increase entropy
+
+    yaourt -S haveged
+	sudo systemctl enable haveged

@@ -17,6 +17,8 @@
 
 ; disable exit command
 (global-set-key (kbd "C-x C-c") 'helm-M-x)
+; C-x C-c -> M-x exit
+(defalias 'exit 'save-buffers-kill-emacs)
 
 ;(setq undo-outer-limit 300000000)
 

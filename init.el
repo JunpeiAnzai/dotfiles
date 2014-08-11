@@ -15,6 +15,9 @@
 
 (setq default-file-name-coding-system 'utf-8-unix)
 
+; disable exit command
+(global-set-key (kbd "C-x C-c") 'helm-M-x)
+
 ;(setq undo-outer-limit 300000000)
 
 ;(require 'ls-lisp)

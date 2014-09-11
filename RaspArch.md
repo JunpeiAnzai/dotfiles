@@ -32,6 +32,12 @@ and
     rm -R /var/log
 	reboot
 
+# samba
+http://obihoernchen.net/wordpress/877/setup-samba-4-on-arch-linux/
 
+    pacman -S samba
+	systemctl enable smbd nmbd
+	
+edit `/etc/sambda/smb.conf`
 
 

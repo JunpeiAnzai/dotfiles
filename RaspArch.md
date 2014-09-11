@@ -40,4 +40,8 @@ http://obihoernchen.net/wordpress/877/setup-samba-4-on-arch-linux/
 	
 edit `/etc/sambda/smb.conf`
 
+# mediatomb
+    pacman -S mediatomb
+
+
 

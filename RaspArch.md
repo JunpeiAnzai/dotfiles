@@ -60,3 +60,9 @@ http://plamo.linet.gr.jp/~matsuki/linux/glantank/dlna.html
     systemctl restart mediatomb
 
 access `host:50500` and edit settings
+
+# ntpd
+
+    systemctl start ntpd
+	systemctl enable ntpd
+

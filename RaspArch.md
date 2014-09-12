@@ -47,8 +47,13 @@ edit `/etc/sambda/smb.conf`
 # mediatomb
     pacman -S mediatomb
 
-edit `/etc/mediatomb/config.xml`
+
+    systemctl start mediatomb
+    systemctl enable mediatomb	
+
+edit `/var/lib/mediatomb/.mediatomb/config.xml`
 http://plamo.linet.gr.jp/~matsuki/linux/glantank/dlna.html
 
+    systemctl restart mediatomb
 
-
+access `host:50500` and edit settings

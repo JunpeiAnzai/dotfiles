@@ -45,6 +45,9 @@ edit `/etc/sambda/smb.conf`
 
 
 # mediatomb
+https://wiki.archlinux.org/index.php/MediaTomb
+
+
     pacman -S mediatomb
 
 

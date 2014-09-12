@@ -40,6 +40,10 @@ http://obihoernchen.net/wordpress/877/setup-samba-4-on-arch-linux/
 	
 edit `/etc/sambda/smb.conf`
 
+# util for NTFS
+    pacman -S ntfs-3g
+
+
 # mediatomb
     pacman -S mediatomb
 

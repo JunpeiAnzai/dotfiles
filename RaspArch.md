@@ -47,5 +47,8 @@ edit `/etc/sambda/smb.conf`
 # mediatomb
     pacman -S mediatomb
 
+edit `/etc/mediatomb/config.xml`
+http://plamo.linet.gr.jp/~matsuki/linux/glantank/dlna.html
+
 
 

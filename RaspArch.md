@@ -61,6 +61,14 @@ http://plamo.linet.gr.jp/~matsuki/linux/glantank/dlna.html
 
 access `host:50500` and edit settings
 
+# mysql(mariadb)
+
+    pacman -S mariadb
+
+    systemctl start mysqld
+	systemctl enable mysqld
+
+
 # ntpd
 
     systemctl start ntpd

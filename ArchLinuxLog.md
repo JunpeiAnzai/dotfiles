@@ -436,3 +436,14 @@ edit `/etc/hostapd/hostapd.conf`
 
     yaourt -S haveged
 	sudo systemctl enable haveged
+
+## virtualbox
+
+    yaourt -S virtualbox qt4
+	modprobe vboxdrv
+	modprobe vboxnetadp
+	modprobe vboxnetflt
+	modprobe vboxpci
+	gpasswd -a $USER vboxusers
+
+

@@ -372,8 +372,14 @@ edit `/etc/fstab`, add option `discard`
 	sudo systemctl start NetworkManager NetworkManager-dispatcher ModemManager
 
 # suspend when laptop lid is closed.
-edit `/etc/systemd/logind.conf`
+    edit `/etc/systemd/logind.conf`
     HandleLidSwitch=Suspend
+
+or,
+
+    yaourt -S acpid
+	edit `/etc/acpi/handler.sh`
+	systemctl restart acpid
 
 # gnuplot
     yaourt -S gnuplot

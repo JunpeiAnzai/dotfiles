@@ -62,8 +62,6 @@
 (let ((default-directory  "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(global-set-key "\C-x\C-b" 'buffer-menu)
-
 (global-set-key "\M-n" 'linum-mode)
 (global-linum-mode t)     
 
@@ -101,8 +99,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;;  '(ansi-color-names-vector
-;;    ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
  '(background-color nil)
  '(background-mode dark)
  '(cursor-color nil)
@@ -118,16 +114,40 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "nil")))))
+ '(default ((t (:background "nil"))))
+ '(navi2ch-article-auto-decode-face ((t (:background "color-230"))))
+ '(navi2ch-article-citation-face ((t (:foreground "color-160"))))
+ '(navi2ch-article-header-contents-face ((t (:foreground "color-33"))))
+ '(navi2ch-article-header-fusianasan-face ((t (:foreground "color-33" :underline t))))
+ '(navi2ch-article-message-separator-face ((t (:foreground "color-64"))))
+ '(navi2ch-bm-cache-face ((t (:foreground "color-33"))))
+ '(navi2ch-bm-down-face ((t (:foreground "color-234" :weight bold))))
+ '(navi2ch-bm-mark-face ((t (:foreground "brightred"))))
+ '(navi2ch-bm-new-cache-face ((t (:foreground "color-33" :weight bold))))
+ '(navi2ch-bm-new-mark-face ((t (:foreground "brightred" :weight bold))))
+ '(navi2ch-bm-new-unread-face ((t (:foreground "green" :weight bold))))
+ '(navi2ch-bm-new-update-face ((t (:foreground "color-125" :weight bold))))
+ '(navi2ch-bm-seen-cache-face ((t (:foreground "color-33" :underline t))))
+ '(navi2ch-bm-seen-mark-face ((t (:foreground "magenta" :underline t))))
+ '(navi2ch-bm-seen-unread-face ((t (:foreground "magenta" :underline t))))
+ '(navi2ch-bm-seen-update-face ((t (:foreground "magenta" :underline t))))
+ '(navi2ch-bm-unread-face ((t (:foreground "magenta"))))
+ '(navi2ch-bm-updated-cache-face ((t (:foreground "color-33" :weight bold))))
+ '(navi2ch-bm-updated-mark-face ((t (:foreground "brightred" :weight bold))))
+ '(navi2ch-bm-updated-unread-face ((t (:foreground "green" :weight bold))))
+ '(navi2ch-bm-updated-update-face ((t (:foreground "magenta" :weight bold))))
+ '(navi2ch-list-board-name-face ((t (:foreground "color-33")))))
+
+(setq navi2ch-net-http-proxy "localhost:8080")
 
 ;; Ricty {{{2 (http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)
  (set-face-attribute 'default nil
                     :family "Ricty"
                     :height 150
  		   )
-(set-fontset-font
- nil 'japanese-jisx0208
- (font-spec :family "Ricty"))
+;; (set-fontset-font
+;;  nil 'japanese-jisx0208
+;;  (font-spec :family "Ricty"))
 
 (require 'twittering-mode)
 (setq twittering-use-master-password t)
@@ -136,7 +156,7 @@
  
 (menu-bar-mode -1)
 
-(tool-bar-mode -1)
+;; (tool-bar-mode -1)
 
 (blink-cursor-mode 0)
 
@@ -598,8 +618,38 @@
 ;; (define-key yas-minor-mode-map (kbd "C-c C-x i v") 'yas-visit-snippet-file)
 
 ;; yasnippet.el----------------------------------
-(require 'yasnippet)
-(setq yas-snippet-dirs
-      '("~/.emacs.d/mySnippets"))
-(yas-global-mode 1)
+;; (require 'yasnippet)
+;; (setq yas-snippet-dirs
+;;       '("~/.emacs.d/mySnippets"))
+;; (yas-global-mode 1)
 
+;; migemo
+(require 'migemo)
+(setq migemo-command "/usr/bin/cmigemo")
+(setq migemo-options '("-q" "--emacs"))
+(setq migemo-dictionary "/usr/share/migemo/utf-8/migemo-dict")
+(setq migemo-user-dictionary nil)
+(setq migemo-coding-system 'utf-8-unix)
+(setq migemo-regex-dictionary nil)
+(load-library "migemo")
+(migemo-init)
+
+
+;; mew
+(autoload 'mew "mew" nil t)
+(autoload 'mew-send "mew" nil t)
+
+;; Optional setup (Read Mail menu):
+(setq read-mail-command 'mew)
+
+;; Optional setup (e.g. C-xm for sending a message):
+(autoload 'mew-user-agent-compose "mew" nil t)
+(if (boundp 'mail-user-agent)
+    (setq mail-user-agent 'mew-user-agent))
+(if (fboundp 'define-mail-user-agent)
+    (define-mail-user-agent
+      'mew-user-agent
+      'mew-user-agent-compose
+      'mew-draft-send-message
+      'mew-draft-kill
+      'mew-send-hook))

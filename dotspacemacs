@@ -44,6 +44,7 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
+     clojure
      git
      (typescript :variables
                  typescript-fmt-on-save t

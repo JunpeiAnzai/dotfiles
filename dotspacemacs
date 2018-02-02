@@ -36,34 +36,35 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     markdown
+     auto-completion
+     better-defaults
+     clojure
+     emacs-lisp
+     git
+     helm
+     (html :variables
+           css-indent-offset 2)
      (javascript :variables
                  js2-basic-offset 2
                  js-indent-level 2)
-     helm
-     auto-completion
-     better-defaults
-     emacs-lisp
-     clojure
-     git
-     yaml
+     markdown
+     octave
+     org
+     (shell :variables
+            shell-default-full-span nil
+            shell-default-shell 'eshell)
+     spell-checking
+     syntax-checking
+     (twitter :variables
+              twittering-use-master-password t)
      (typescript :variables
                  typescript-fmt-on-save t
                  typescript-indent-level 2
                  ;; for .tsx
                  web-mode-code-indent-offset 2
                  web-mode-markup-indent-offset 2)
-     (html :variables
-           css-indent-offset 2)
-     org
-     (twitter :variables
-              twittering-use-master-password t)
-     (shell :variables
-            shell-default-full-span nil
-            shell-default-shell 'eshell)
-     spell-checking
-     syntax-checking
      version-control
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
